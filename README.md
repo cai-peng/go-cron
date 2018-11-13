@@ -2,6 +2,7 @@
 Rewrite linux-crontab by golang
 
 ## demo code
+```
 package main
 
 import (
@@ -34,10 +35,11 @@ func main() {
 
 	//When your program restarted and you maybe need rebuild you jobs
 	//from config file or db you can use like this
-  for _,job:=range GetJobs() {
-     	execFunc:=makeFunc(job)
-     	//c.AddJobWithJobID("*/1 * * * * *",ExecDemo,my_jobid,log)
-	     id, _ := c.AddJobWithJobID(job.spec, execFunc, job.jobid, log)
-	     c.Start(id)
-  }
+        for _,job:=range GetJobs() {
+		execFunc:=makeFunc(job)
+		//c.AddJobWithJobID("*/1 * * * * *",ExecDemo,my_jobid,log)
+		id, _ := c.AddJobWithJobID(job.spec, execFunc, job.jobid, log)
+		c.Start(id)
+  	}
 }
+```
