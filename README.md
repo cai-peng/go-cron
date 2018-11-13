@@ -1,5 +1,5 @@
 # go-cron
-Rewrite linux-crontab by golang
+Rewrite linux-crontab by golang and precision to second
 
 ## demo code
 ```
@@ -32,14 +32,15 @@ func main() {
 	c.Start(jobid)
 	c.Stop(jobid)
 	c.Delete(jobid)
+	//store this jobid maybe you need use it
 
 	//When your program restarted and you maybe need rebuild you jobs
 	//from config file or db you can use like this
         for _,job:=range GetJobs() {
-		execFunc:=makeFunc(job)
-		//c.AddJobWithJobID("*/1 * * * * *",ExecDemo,my_jobid,log)
-		id, _ := c.AddJobWithJobID(job.spec, execFunc, job.jobid, log)
-		c.Start(id)
+	      execFunc:=makeFunc(job)
+	      //c.AddJobWithJobID("*/1 * * * * *",ExecDemo,my_jobid,log)
+	      id, _ := c.AddJobWithJobID(job.spec, execFunc, job.jobid, log)
+	      c.Start(id)
   	}
 }
 ```
