@@ -5,6 +5,7 @@ import (
 	"runtime"
 )
 
+//go version >= 1.9
 type jobId = string
 
 type Logger interface {
