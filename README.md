@@ -1,5 +1,6 @@
 # go-cron
-Rewrite linux-crontab by golang and precision to second
+a crontab librarys by golang and precision to second
+and functional enhancement is simple and easy to use.
 
 ## demo code
 ```
